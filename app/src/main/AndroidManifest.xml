@@ -23,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!--debug-->
+        <!--添加自己的百度定位SDK AK-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="MejEGSV4fdlF5drjfjQPXxsQxLiYFXaD"/>
