@@ -60,8 +60,12 @@ public class FirstActivity extends AppCompatActivity {
                     outputImage.delete();
                 }
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(outputImage));
-                startActivityForResult(intent, PHOTO_GRAPH);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(outputImage));
+                    startActivityForResult(intent, PHOTO_GRAPH);
+                } else {
+                    Toast.makeText(FirstActivity.this, "模拟器不支持相机", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
